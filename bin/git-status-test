@@ -1,0 +1,7 @@
+#!/bin/bash
+
+git br --no-merged master
+git status --short
+git status --short --branch | grep -v 'master'
+git stash list
+git sub-status

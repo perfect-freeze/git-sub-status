@@ -1,0 +1,15 @@
+#!/bin/bash
+
+git_root=$(git rev-parse --show-toplevel)
+if [ ! -d "$git_root" ]; then
+	exit 1
+fi
+
+for dir in $(find $git_root/* -type d -name .git); do
+	cd ${dir%.git}
+	if [ -n "$(git status-test)" ]; then
+		echo
+		echo -e "\e[36m${dir%.git}\e[00m"
+		git status-verbose
+	fi
+done
