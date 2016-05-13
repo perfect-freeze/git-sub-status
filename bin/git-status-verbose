@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -z "$(git remote | grep pub)" ]; then
+  git remote -v
+  echo
+fi
 git branch
 git status
 git stash list
