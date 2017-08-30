@@ -7,4 +7,3 @@ fi
 git branch
 git status
 git stash list
-git sub-status
